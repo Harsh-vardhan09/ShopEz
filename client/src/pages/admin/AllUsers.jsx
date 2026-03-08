@@ -11,13 +11,13 @@ const AllUsers = () => {
   }, [])
 
   const fetchUsersData = async() =>{
-    await axios.get('http://localhost:6001/api/users/fetch-users').then(
+    await axios.get('https://shopez-lo41.onrender.com/api/users/fetch-users').then(
       (response)=>{
         setUsers(response.data.filter(user=> user.usertype === 'customer'));
       }
     )
 
-    await axios.get('http://localhost:6001/api/orders/fetch-orders').then(
+    await axios.get('https://shopez-lo41.onrender.com/api/orders/fetch-orders').then(
       (response)=>{
         setOrders(response.data);
       }

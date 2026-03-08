@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import Products from '../components/Products'
 import Footer from '../components/Footer'
-import FlashSale from '../components/FlashSale'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
@@ -11,13 +10,14 @@ const Home = () => {
 
   const [bannerImg, setBannerImg] = useState();
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(()=>{
     fetchBanner();
   }, [])
 
 const fetchBanner = async () => {
   try {
-    const response = await axios.get("http://localhost:6001/api/banners"); // public route
+    const response = await axios.get("https://shopez-lo41.onrender.com/api/banners"); // public route
     setBannerImg(response.data);
   } catch (err) {
     console.error("Failed to fetch banner:", err.response?.data?.message || err.message);

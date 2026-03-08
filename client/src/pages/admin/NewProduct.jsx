@@ -25,7 +25,7 @@ const NewProduct = () => {
     fetchCategories();
   },[])
   const fetchCategories = async () =>{
-    await axios.get('http://localhost:6001/api/products/fetch-categories').then(
+    await axios.get('https://shopez-lo41.onrender.com/api/products/fetch-categories').then(
       (response)=>{
         setAvailableCategories(response.data);
       }
@@ -46,7 +46,7 @@ const NewProduct = () => {
 
 
   const handleNewProduct = async() =>{
-    await axios.post('http://localhost:6001/api/products/add-new-product', {productName, productDescription, productMainImg, productCarousel: [productCarouselImg1, productCarouselImg2, productCarouselImg3], productSizes, productGender, productCategory, productNewCategory, productPrice, productDiscount}).then(
+    await axios.post('https://shopez-lo41.onrender.com/api/products/add-new-product', {productName, productDescription, productMainImg, productCarousel: [productCarouselImg1, productCarouselImg2, productCarouselImg3], productSizes, productGender, productCategory, productNewCategory, productPrice, productDiscount}).then(
       (response)=>{
         alert("product added");
         setProductName('');

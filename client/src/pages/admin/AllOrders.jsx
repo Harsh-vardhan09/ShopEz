@@ -14,7 +14,7 @@ const AllOrders = () => {
   },[])
 
   const fetchOrders = async () =>{
-    await axios.get(`http://localhost:6001/api/orders/fetch-orders`).then(
+    await axios.get(`https://shopez-lo41.onrender.com/api/orders/fetch-orders`).then(
       (response)=>{
         setOrders(response.data.reverse());
       }
@@ -24,7 +24,7 @@ const AllOrders = () => {
 
 const cancelOrder = async (orderId) => {
   try {
-    const { data } = await axios.put('http://localhost:6001/api/orders/cancel-order', { orderId });
+    const { data } = await axios.put('https://shopez-lo41.onrender.com/api/orders/cancel-order', { orderId });
     alert(data.message || "Order cancelled!!");
     fetchOrders();
   } catch (err) {
@@ -35,7 +35,7 @@ const cancelOrder = async (orderId) => {
 
 
   const updateOrderStatus = async(id) =>{
-    await axios.put('http://localhost:6001/api/orders/update-order-status', {id, updateStatus}).then(
+    await axios.put('https://shopez-lo41.onrender.com/api/orders/update-order-status', {id, updateStatus}).then(
       (response)=>{
         alert("Order status updated!!");
         setUpdateStatus('');

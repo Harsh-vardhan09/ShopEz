@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import {BsCart3, BsPersonCircle} from 'react-icons/bs'
 import {FiSearch} from 'react-icons/fi'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { GeneralContext } from '../context/GeneralContext'
 import {AiOutlineClose} from 'react-icons/ai'
 import axios from 'axios'
@@ -27,7 +27,7 @@ const Navbar = () => {
 
   const fetchData = async() =>{
 
-    await axios.get('http://localhost:6001/api/products/fetch-categories').then(
+    await axios.get('https://shopez-lo41.onrender.com/api/products/fetch-categories').then(
       (response)=>{
         setCategories(response.data);
       }

@@ -32,7 +32,7 @@ const GeneralContextProvider = ({children}) => {
     const userId = localStorage.getItem('userId');
     if(userId){
       try {
-        const response = await axios.get('http://localhost:6001/api/cart/fetch-cart');
+        const response = await axios.get('https://shopez-lo41.onrender.com/api/cart/fetch-cart');
         setCartCount(response.data.filter(item=> item.userId === userId).length);
       } catch (err) {
         console.error("Cart fetch error:", err);
@@ -58,7 +58,7 @@ const login = async () => {
 
     console.log("Login payload sent:", loginInputs); 
 
-    const res = await axios.post('http://localhost:6001/api/users/login', loginInputs);
+    const res = await axios.post('https://shopez-lo41.onrender.com/api/users/login', loginInputs);
 
     console.log("Login response:", res.data); 
 
@@ -82,7 +82,7 @@ const login = async () => {
   const inputs = {username, email, usertype, password};
   const register = async () =>{
     try {
-      const res = await axios.post('http://localhost:6001/api/users/register', inputs);
+      const res = await axios.post('https://shopez-lo41.onrender.com/api/users/register', inputs);
 
       localStorage.setItem('token', res.data.token);   
       localStorage.setItem('userId', res.data._id);

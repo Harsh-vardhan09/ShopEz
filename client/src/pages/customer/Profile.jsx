@@ -6,19 +6,19 @@ const Profile = () => {
 
   const {logout} = useContext(GeneralContext);
 
-  const userId = localStorage.getItem('userId');
   const username = localStorage.getItem('username');
   const email = localStorage.getItem('email');
 
   const [orders, setOrders] = useState([]);
 
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(()=>{
     fetchOrders();
   },[])
 
   const fetchOrders = async () =>{
-    await axios.get(`http://localhost:6001/api/orders/fetch-orders`).then(
+    await axios.get(`https://shopez-lo41.onrender.com/api/orders/fetch-orders`).then(
       (response)=>{
         setOrders(response.data.reverse());
       }

@@ -22,17 +22,17 @@ const Admin = () => {
   }, [])
 
   const fetchCountData = async() =>{
-    await axios.get('http://localhost:6001/api/users/fetch-users').then(
+    await axios.get('https://shopez-lo41.onrender.com/api/users/fetch-users').then(
       (response)=>{
         setUserCount(response.data.length - 1);
       }
     )
-    await axios.get('http://localhost:6001/api/products/fetch-products').then(
+    await axios.get('https://shopez-lo41.onrender.com/api/products/fetch-products').then(
       (response)=>{
         setProductCount(response.data.length);
       }
     )
-    await axios.get('http://localhost:6001/api/orders/fetch-orders').then(
+    await axios.get('https://shopez-lo41.onrender.com/api/orders/fetch-orders').then(
       (response)=>{
         setOrdersCount(response.data.length);
       }
@@ -46,7 +46,7 @@ const Admin = () => {
 
   const [banner, setBanner] = useState('');
   const updateBanner = async() =>{
-    await axios.post('http://localhost:6001/update-banner', {banner}).then(
+    await axios.post('https://shopez-lo41.onrender.com/update-banner', {banner}).then(
       (response)=>{
         alert("Banner updated");
         setBanner('');

@@ -16,13 +16,13 @@ const AllProducts = () => {
     
       const fetchData = async() =>{
 
-        await axios.get('http://localhost:6001/api/products/fetch-products').then(
+        await axios.get('https://shopez-lo41.onrender.com/api/products/fetch-products').then(
           (response)=>{
             setProducts(response.data);
             setVisibleProducts(response.data);
           }
         )
-        await axios.get('http://localhost:6001/api/products/fetch-categories').then(
+        await axios.get('https://shopez-lo41.onrender.com/api/products/fetch-categories').then(
           (response)=>{
             setCategories(response.data);
           }

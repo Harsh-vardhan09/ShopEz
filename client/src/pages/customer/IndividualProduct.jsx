@@ -11,7 +11,7 @@ const navigate = useNavigate()
 
 const userId = localStorage.getItem('userId');
 
-const {fetchCartCount} = useContext(GeneralContext);
+// const {fetchCartCount} = useContext(GeneralContext);
 
 const [productName, setProductName] = useState('');
 const [productDescription, setProductDescription] = useState('');
@@ -29,7 +29,7 @@ useEffect(()=>{
 },[])
 
 const fetchProduct = async () =>{
-    await axios.get(`http://localhost:6001/api/products/fetch-product-details/${id}`).then(
+    await axios.get(`https://shopez-lo41.onrender.com/api/products/fetch-product-details/${id}`).then(
         (response)=>{
             setProductName(response.data.title);
             setProductDescription(response.data.description);

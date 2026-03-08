@@ -10,6 +10,7 @@ const Cart = () => {
 
   const navigate = useNavigate();
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     fetchCart();
   }, []);
@@ -21,7 +22,7 @@ const Cart = () => {
           Authorization: `Bearer ${localStorage.getItem('token')}`,
         },
       };
-      const response = await axios.get('http://localhost:6001/api/cart/fetch-cart', config);
+      const response = await axios.get('https://shopez-lo41.onrender.com/api/cart/fetch-cart', config);
 
       // Ensure cartItems is always an array
       const items = Array.isArray(response.data) ? response.data : [];
@@ -45,7 +46,7 @@ const Cart = () => {
           Authorization: `Bearer ${localStorage.getItem('token')}`,
         },
       };
-      await axios.delete(`http://localhost:6001/api/cart/remove-item/${itemId}`, config);
+      await axios.delete(`https://shopez-lo41.onrender.com/api/cart/remove-item/${itemId}`, config);
       fetchCart(); // refresh cart after deletion
     } catch (error) {
       console.error('Error removing item:', error);
@@ -83,7 +84,7 @@ const Cart = () => {
     if (cartItems.length === 0) return;
 
     try {
-      await axios.post('http://localhost:6001/api/orders/place-cart-order', {
+      await axios.post('https://shopez-lo41.onrender.com/api/orders/place-cart-order', {
         userId,
         name,
         mobile,
