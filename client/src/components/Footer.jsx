@@ -51,7 +51,7 @@ const Footer = () => {
 
         {/* Bottom Bar */}
         <div className="border-t border-gray-200 pt-6 text-center">
-          <p className="text-gray-500 text-sm">© 2024 ShopEZ.com - All rights reserved</p>
+          <p className="text-gray-500 text-sm">© 2026 ShopEZ.com - All rights reserved</p>
         </div>
       </div>
     </footer>

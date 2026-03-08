@@ -1,4 +1,7 @@
 import mongoose from 'mongoose';
+import { Product } from '../models/Schema.js';
+import products from '../models/SeedData.js';
+
 
 const connectDB = async () => {
   try {

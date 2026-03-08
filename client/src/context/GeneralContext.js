@@ -16,7 +16,6 @@ const GeneralContextProvider = ({children}) => {
   const [productSearch, setProductSearch] = useState('');
   const [cartCount, setCartCount] = useState(0);
 
-  // 🔒 Axios interceptor to always attach JWT if exists
   axios.interceptors.request.use((config) => {
     const token = localStorage.getItem("token");
     if (token) {
@@ -45,8 +44,6 @@ const GeneralContextProvider = ({children}) => {
     navigate('#products-body');
   }
 
-  // 🟢 LOGIN
-// 🟢 LOGIN
 const login = async () => {
   if (!email || !password) {
     alert("Email and password are required!");
@@ -54,19 +51,17 @@ const login = async () => {
   }
 
   try {
-    // Trim email to avoid leading/trailing spaces
     const loginInputs = {
       email: email.trim(),
       password: password
     };
 
-    console.log("Login payload sent:", loginInputs); // ✅ Debug: see what is sent
+    console.log("Login payload sent:", loginInputs); 
 
     const res = await axios.post('http://localhost:6001/api/users/login', loginInputs);
 
-    console.log("Login response:", res.data); // ✅ Debug: see response from backend
+    console.log("Login response:", res.data); 
 
-    // Save user data + token
     localStorage.setItem('token', res.data.token);
     localStorage.setItem('userId', res.data._id);
     localStorage.setItem('userType', res.data.usertype);
@@ -84,14 +79,12 @@ const login = async () => {
   }
 };
 
-  // 🟢 REGISTER
   const inputs = {username, email, usertype, password};
   const register = async () =>{
     try {
       const res = await axios.post('http://localhost:6001/api/users/register', inputs);
 
-      // Save user data + token
-      localStorage.setItem('token', res.data.token);   // ✅ Save JWT
+      localStorage.setItem('token', res.data.token);   
       localStorage.setItem('userId', res.data._id);
       localStorage.setItem('userType', res.data.usertype);
       localStorage.setItem('username', res.data.username);
@@ -108,7 +101,6 @@ const login = async () => {
     }
   }
 
-  // 🟢 LOGOUT
   const logout = () =>{
     localStorage.clear();
     navigate('/');
@@ -125,7 +117,7 @@ const login = async () => {
         productSearch, setProductSearch,
         handleSearch,
         cartCount,
-         setCartCount,       // ✅ Expose setter so components can update count
+         setCartCount,       
       fetchCartCount  
       }}>
       {children}
